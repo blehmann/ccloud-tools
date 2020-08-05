@@ -22,6 +22,9 @@ data "template_file" "rest_proxy_bootstrap" {
     confluent_platform_location = var.confluent_platform_location
     rest_proxy_properties       = data.template_file.rest_proxy_properties.rendered
     confluent_home_value        = var.confluent_home_value
+    confluent_base              = var.confluent_base
+    confluent_zip               = var.confluent_zip
+
   }
 }
 
@@ -50,6 +53,9 @@ data "template_file" "kafka_connect_bootstrap" {
     confluent_platform_location = var.confluent_platform_location
     kafka_connect_properties    = data.template_file.kafka_connect_properties.rendered
     confluent_home_value        = var.confluent_home_value
+    confluent_base              = var.confluent_base
+    confluent_zip              = var.confluent_zip
+
   }
 }
 
@@ -78,6 +84,8 @@ data "template_file" "ksql_server_bootstrap" {
     confluent_platform_location = var.confluent_platform_location
     ksql_server_properties      = data.template_file.ksql_server_properties.rendered
     confluent_home_value        = var.confluent_home_value
+    confluent_base              = var.confluent_base
+    confluent_zip               = var.confluent_zip
   }
 }
 
@@ -96,6 +104,7 @@ data "template_file" "control_center_properties" {
     schema_registry_url        = var.schema_registry_url
     schema_registry_basic_auth = var.schema_registry_basic_auth
     confluent_home_value       = var.confluent_home_value
+
     kafka_connect_url = join(
       ",",
       formatlist(
@@ -126,6 +135,9 @@ data "template_file" "control_center_bootstrap" {
     confluent_platform_location = var.confluent_platform_location
     control_center_properties   = data.template_file.control_center_properties.rendered
     confluent_home_value        = var.confluent_home_value
+    confluent_base              = var.confluent_base
+    confluent_zip               = var.confluent_zip
+
   }
 }
 
@@ -150,4 +162,3 @@ data "template_file" "bastion_server_bootstrap" {
     )
   }
 }
-

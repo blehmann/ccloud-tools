@@ -14,9 +14,17 @@ variable "instance_count" {
 }
 
 variable "confluent_platform_location" {
-  default = "http://packages.confluent.io/archive/5.3/confluent-5.3.1-2.12.zip"
+  default = "http://packages.confluent.io/archive/5.5/confluent-5.5.1-2.12.zip"
 }
 
 variable "confluent_home_value" {
-  default = "/etc/confluent/confluent-5.3.1"
+  default = "/etc/confluent/confluent-5.5.1"
+}
+
+variable "confluent_zip" {
+  default = "confluent-5.5.1-2.12.zip"
+}
+
+variable "confluent_base" {
+  default = "confluent-5.5.1"
 }

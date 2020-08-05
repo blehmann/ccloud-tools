@@ -31,6 +31,9 @@ variable "aws_access_key" {
 variable "aws_secret_key" {
 }
 
+variable "aws_region" {
+}
+
 ###########################################
 ############# Confluent Cloud #############
 ###########################################
@@ -55,5 +58,5 @@ variable "schema_registry_basic_auth" {
 ###########################################
 
 variable "global_prefix" {
-  default = "ccloud-tools"
+  default = "cct-lehmann"
 }

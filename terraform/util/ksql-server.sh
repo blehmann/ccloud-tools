@@ -11,14 +11,14 @@ yum install java-1.8.0-openjdk-devel.x86_64 -y
 
 cd /tmp
 wget ${confluent_platform_location}
-unzip confluent-5.3.1-2.12.zip
+unzip ${confluent_zip}
 mkdir /etc/confluent
-mv confluent-5.3.1 /etc/confluent
+mv ${confluent_base} /etc/confluent
 mkdir ${confluent_home_value}/data
 
 ########### Generating Props File ###########
 
-cd ${confluent_home_value}/etc/ksql
+cd ${confluent_home_value}/etc/ksqldb
 
 cat > ksql-server-ccloud.properties <<- "EOF"
 ${ksql_server_properties}
@@ -35,8 +35,8 @@ After=network.target
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=${confluent_home_value}/bin/ksql-server-start ${confluent_home_value}/etc/ksql/ksql-server-ccloud.properties
-ExecStop=${confluent_home_value}/bin/ksql-server-stop ${confluent_home_value}/etc/ksql/ksql-server-ccloud.properties
+ExecStart=${confluent_home_value}/bin/ksql-server-start ${confluent_home_value}/etc/ksqldb/ksql-server-ccloud.properties
+ExecStop=${confluent_home_value}/bin/ksql-server-stop ${confluent_home_value}/etc/ksqldb/ksql-server-ccloud.properties
 
 [Install]
 WantedBy=multi-user.target
